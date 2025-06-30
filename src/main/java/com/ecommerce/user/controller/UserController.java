@@ -47,7 +47,7 @@ public class UserController {
         .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found")));
   }
 
-  @PostMapping
+  @PostMapping("/register")
   public Mono<UserDto> createUser(@RequestBody UserDto userDto) {
     return userService.createUser(UserDto.toEntity(userDto))
         .map(UserDto::fromEntity);

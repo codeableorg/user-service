@@ -18,6 +18,13 @@ spring:
     password: password
     locations: classpath:db/migration
 
+  # Security configuration for OAuth2 resource server
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8090/realms/ecommerce/protocol/openid-connect/certs
+
 logging:
   level:
     com.ecommerce.user: DEBUG
