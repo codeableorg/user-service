@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: user-service
+
+  # Database configuration for user service
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/ecommerce_user_db
+    username: root
+    password: password
+
+  # Flyway configuration for database migrations
+  flyway:
+    url: jdbc:mysql://localhost:3306/ecommerce_user_db
+    user: root
+    password: password
+    locations: classpath:db/migration
+
+logging:
+  level:
+    com.ecommerce.user: DEBUG
+    org.springframework.r2dbc: DEBUG
